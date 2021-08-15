@@ -1,10 +1,18 @@
+import '@brainhubeu/react-carousel/lib/style.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+import Home from './components/Home/Home/Home';
 
 function App() {
     return (
-        <div>
-            <h1>Hello, world!</h1>
-        </div>
+        <Router>
+            <Switch>
+                <Route path="/">
+                    <Home />
+                </Route>
+            </Switch>
+        </Router>
     );
 }
 

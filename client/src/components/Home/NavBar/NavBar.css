@@ -1,0 +1,21 @@
+.nav {
+    background-color: #fff;
+    font-weight: 500;
+    color: #000;
+}
+#nav-brand {
+    font-size: 32px;
+    font-weight: bold;
+}
+#nav-brand:hover {
+    color: red;
+}
+.items-nav {
+    gap: 10px;
+    padding: 5px;
+}
+.items-nav a:hover {
+    color: #fff !important;
+    border-radius: 10px;
+    background-color: #435469;
+}

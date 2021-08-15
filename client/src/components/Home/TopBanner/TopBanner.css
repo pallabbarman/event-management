@@ -1,0 +1,36 @@
+.top-banner {
+    color: white;
+    background-image: url(../../../images/event.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+}
+.top-banner:hover {
+    opacity: 1;
+}
+.banner {
+    height: 600px;
+}
+.banner-content {
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    flex-wrap: wrap;
+    overflow: hidden;
+    border-radius: 20px;
+    text-align: center;
+    padding: 20px;
+}
+.banner-content h1 {
+    font-size: 50px;
+    text-align: center;
+    font-weight: bold;
+}
+.banner-content p {
+    font-size: 18px;
+    text-align: justify;
+    padding: 0 20px;
+}
+.banner-content button {
+    color: white;
+    font-weight: bold;
+}

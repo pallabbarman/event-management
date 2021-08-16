@@ -1,0 +1,26 @@
+#service-name:hover {
+    color: red;
+}
+.service-card {
+    width: 21rem;
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: justify;
+}
+.service-card:hover {
+    background-color: whitesmoke;
+    box-shadow: 2px 2px 5px gray;
+}
+.service-card h6 {
+    color: red;
+}
+.service-card img {
+    object-fit: contain;
+    height: 250px;
+    cursor: pointer;
+    transform: scale(1);
+    transition: 0.8s;
+}
+.service-card img:hover {
+    transform: scale(1.2);
+}

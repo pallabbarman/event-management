@@ -1,4 +1,3 @@
-import '@brainhubeu/react-carousel/lib/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';

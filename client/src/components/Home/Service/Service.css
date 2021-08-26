@@ -2,7 +2,7 @@
     color: red;
 }
 .service-card {
-    width: 21rem;
+    width: 18rem;
     border-radius: 15px;
     overflow: hidden;
     text-align: justify;
@@ -16,7 +16,7 @@
 }
 .service-card img {
     object-fit: contain;
-    height: 250px;
+    height: 220px;
     cursor: pointer;
     transform: scale(1);
     transition: 0.8s;

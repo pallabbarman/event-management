@@ -6,7 +6,7 @@ const Service = (props) => {
     const { service } = props;
     const { name, price, img, description } = service;
     return (
-        <Col md={6} lg={4} className="d-flex justify-content-center mt-5">
+        <Col md={6} lg={4} xl={3} className="d-flex justify-content-center mt-5">
             <Card className="service-card">
                 <Card.Img variant="top" src={img} />
                 <br />

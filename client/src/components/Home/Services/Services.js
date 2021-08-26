@@ -13,7 +13,7 @@ const Services = () => {
             price: 150,
             img: wed,
             description:
-                'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus quas eius accusamus eum odit animi quasi, cum quaerat nobis fugiat amet reprehenderit magni corrupti ex quis ut fugit expedita ipsam?',
+                'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus quas eius accusamus eum odit animi quasi',
         },
         {
             id: 2,
@@ -21,7 +21,7 @@ const Services = () => {
             price: 150,
             img: birth,
             description:
-                'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus quas eius accusamus eum odit animi quasi, cum quaerat nobis fugiat amet reprehenderit magni corrupti ex quis ut fugit expedita ipsam?',
+                'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus quas eius accusamus eum odit animi quasi',
         },
         {
             id: 3,
@@ -29,7 +29,15 @@ const Services = () => {
             price: 150,
             img: party,
             description:
-                'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus quas eius accusamus eum odit animi quasi, cum quaerat nobis fugiat amet reprehenderit magni corrupti ex quis ut fugit expedita ipsam?',
+                'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus quas eius accusamus eum odit animi quasi',
+        },
+        {
+            id: 4,
+            name: 'Party',
+            price: 150,
+            img: party,
+            description:
+                'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus quas eius accusamus eum odit animi quasi',
         },
     ];
     return (

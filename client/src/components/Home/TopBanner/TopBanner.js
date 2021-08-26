@@ -15,7 +15,7 @@ const TopBanner = () => (
                             sequi quisquam, excepturi provident cum nostrum nemo voluptas vitae
                             necessitatibus voluptatem reprehenderit?
                         </p>
-                        <Button size="lg" variant="outline-primary" type="button">
+                        <Button variant="outline-primary" type="button">
                             Hire Us
                         </Button>
                     </div>

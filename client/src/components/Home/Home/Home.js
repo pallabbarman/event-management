@@ -3,6 +3,7 @@ import Features from '../Features/Features';
 import NavBar from '../NavBar/NavBar';
 import Services from '../Services/Services';
 import TopBanner from '../TopBanner/TopBanner';
+import WhyUs from '../WhyUs/WhyUs';
 
 const Home = () => (
     <div>
@@ -10,6 +11,7 @@ const Home = () => (
         <TopBanner />
         <Services />
         <Features />
+        <WhyUs />
     </div>
 );
 

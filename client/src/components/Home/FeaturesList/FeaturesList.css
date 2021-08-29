@@ -1,0 +1,11 @@
+.ft-items {
+    width: 32rem;
+    padding: 30px;
+    border-radius: 10px;
+}
+.ft-items:hover {
+    box-shadow: 5px 5px 10px gray;
+}
+.ft-items h3:hover {
+    color: red;
+}

@@ -1,0 +1,21 @@
+.features {
+    background-color: gainsboro;
+    padding: 20px 0;
+}
+.feature {
+    margin: 20px 0;
+}
+.feature h1 {
+    font-size: 50px;
+}
+.feature h1:hover {
+    color: red;
+}
+.feature p {
+    text-align: justify;
+    padding: 10px;
+}
+.feature-img {
+    height: 320px;
+    border-radius: 10px;
+}

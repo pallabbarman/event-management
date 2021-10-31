@@ -38,7 +38,7 @@ const WhyUs = () => {
         <section>
             <Container>
                 <div className="text-center mt-5 whyUs">
-                    <h1>WHY CHOOSE US</h1>
+                    <h1>Why Choose Us</h1>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi dolores
                         molestias veniam, adipisci reiciendis provident fugit cumque. Commodi, ab

@@ -11,7 +11,7 @@ const Features = () => (
                     <img className="img-fluid feature-img" src={demo} alt="" />
                 </Col>
                 <Col lg={6}>
-                    <h1 className="text-center">PARTY</h1>
+                    <h1 className="text-center">Party</h1>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic laudantium
                         officia deserunt ipsam, provident unde atque obcaecati, vel voluptatem

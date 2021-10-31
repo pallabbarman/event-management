@@ -3,10 +3,6 @@
     background-image: url(../../../images/event.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    opacity: 0.9;
-}
-.top-banner:hover {
-    opacity: 1;
 }
 .banner {
     height: 600px;
@@ -19,6 +15,7 @@
     border-radius: 20px;
     text-align: center;
     padding: 20px;
+    opacity: 0.9;
 }
 .banner-content h1 {
     font-size: 50px;
@@ -33,4 +30,7 @@
 .banner-content button {
     color: white;
     font-weight: bold;
+}
+.banner-content:hover {
+    opacity: 1;
 }

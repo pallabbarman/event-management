@@ -44,7 +44,7 @@ const Services = () => {
         <section>
             <Container>
                 <h1 id="service-name" className="text-center mt-5">
-                    OUR SERVICES
+                    Our Services
                 </h1>
                 <Row>
                     {servicesData.map((service) => (

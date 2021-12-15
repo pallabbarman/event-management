@@ -15,13 +15,13 @@ const NavBar = () => (
                     <Nav.Link active as={Link} to="/">
                         Home
                     </Nav.Link>
-                    <Nav.Link active as={Link} to="/">
+                    <Nav.Link active as={Link} to="/dashboard">
                         Dashboard
                     </Nav.Link>
-                    <Nav.Link active as={Link} to="/">
+                    <Nav.Link active as={Link} to="/contact">
                         Contact
                     </Nav.Link>
-                    <Nav.Link active as={Link} to="/">
+                    <Nav.Link active as={Link} to="/login">
                         Login
                     </Nav.Link>
                 </Nav>

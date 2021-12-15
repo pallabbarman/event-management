@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './TopBanner.css';
 
 const TopBanner = () => (
@@ -15,7 +16,13 @@ const TopBanner = () => (
                             sequi quisquam, excepturi provident cum nostrum nemo voluptas vitae
                             necessitatibus voluptatem reprehenderit?
                         </p>
-                        <Button variant="outline-primary" type="button">
+                        <Button
+                            className="px-5 dash-btn"
+                            as={Link}
+                            to="/dashboard"
+                            variant="outline-primary"
+                            type="button"
+                        >
                             Hire Us
                         </Button>
                     </div>

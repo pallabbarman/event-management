@@ -43,7 +43,7 @@ const Footer = () => (
                     </div>
                 </Col>
                 <Col lg={4} md={6}>
-                    <h3>Have a Questions?</h3>
+                    <h3>Address</h3>
                     <div className="mt-4">
                         <p>
                             <FontAwesomeIcon icon={faMapMarkerAlt} /> Mirpur-2, Dhaka, Bangladesh
@@ -63,7 +63,7 @@ const Footer = () => (
             </Row>
             <div className="text-center mt-5 social-link">
                 <h6>Copyright &copy; {new Date().getFullYear()} Eventia</h6>
-                <a target="_blank" rel="noreferrer" href="http://https://www.facebook.com/pallabbm">
+                <a target="_blank" rel="noreferrer" href="https://www.facebook.com/pallabbm">
                     <FontAwesomeIcon icon={faFacebook} />
                 </a>
                 <a target="_blank" rel="noreferrer" href="https://www.instagram.com/pallabbm/">

@@ -27,9 +27,9 @@
     text-align: justify;
     padding: 0 20px;
 }
-.banner-content button {
+.dash-btn {
     color: white;
-    font-weight: bold;
+    font-weight: 700;
 }
 .banner-content:hover {
     opacity: 1;

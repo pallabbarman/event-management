@@ -1,0 +1,15 @@
+.review-btn {
+    background-color: white;
+    color: black;
+    border: 1px solid gray;
+}
+.review-btn:hover {
+    background-color: red;
+    border: 1px solid red;
+}
+.h1-hover:hover {
+    color: red;
+}
+.review-span span {
+    color: red;
+}

@@ -8,7 +8,7 @@ const BookingList = () => (
             <Sidebar />
         </div>
         <div className="dashboard pt-5">
-            <Container>
+            <Container className="mb-5">
                 <h1 className="text-center h1-hover mb-5">Booking List</h1>
                 <Table striped bordered hover responsive>
                     <thead>

@@ -19,7 +19,7 @@ const Review = () => {
                 <Sidebar />
             </div>
             <div className="dashboard pt-5">
-                <Container className="review-span">
+                <Container className="review-span mb-5">
                     <h1 className="text-center h1-hover mb-5">Review</h1>
                     <Form onSubmit={handleSubmit(onSubmit)}>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">

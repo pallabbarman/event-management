@@ -7,7 +7,7 @@ const Book = () => (
         <div>
             <Sidebar />
         </div>
-        <div className="dashboard">
+        <div className="dashboard mb-5">
             <Services />
         </div>
     </section>

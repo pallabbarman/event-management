@@ -8,6 +8,7 @@ import AddService from './components/Admin/AddService/AddService';
 import ManageReviews from './components/Admin/ManageReviews/ManageReviews';
 import ManageServices from './components/Admin/ManageServices/ManageServices';
 import OrderList from './components/Admin/OrderList/OrderList';
+import Contact from './components/Contact/Contact';
 import Book from './components/Customer/Book/Book';
 import BookingList from './components/Customer/BookingList/BookingList';
 import Review from './components/Customer/Review/Review';
@@ -23,6 +24,9 @@ function App() {
                 </Route>
                 <Route path="/dashboard">
                     <Dashboard />
+                </Route>
+                <Route path="/contact">
+                    <Contact />
                 </Route>
                 <Route path="/book">
                     <Book />

@@ -3,6 +3,7 @@ import {
     faClipboardList,
     faCommentAlt,
     faComments,
+    faEnvelope,
     faHome,
     faList,
     faPlus,
@@ -47,6 +48,9 @@ const Sidebar = () => (
             </Link>
             <Link to="/manageReviews">
                 <FontAwesomeIcon icon={faComments} /> Manage Reviews
+            </Link>
+            <Link to="/contact">
+                <FontAwesomeIcon icon={faEnvelope} /> Contact
             </Link>
         </div>
     </section>

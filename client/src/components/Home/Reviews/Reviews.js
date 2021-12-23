@@ -96,7 +96,7 @@ const Reviews = () => {
         },
     ];
     return (
-        <section>
+        <section className="clients-review">
             <Container>
                 <h1 className="text-center mt-5 clientsays">What Our Clients Says</h1>
                 <Slider {...settings}>

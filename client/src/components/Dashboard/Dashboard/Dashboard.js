@@ -9,7 +9,7 @@ const Dashboard = () => (
         <div>
             <Sidebar />
         </div>
-        <div className="dashboard pt-5">
+        <div className="dashboard pt-5 mb-5">
             <Container className="text-center">
                 <h1>Welcome to the dashboard</h1>
                 <br />

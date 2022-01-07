@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import './App.css';
@@ -14,46 +15,96 @@ import BookingList from './components/Customer/BookingList/BookingList';
 import Review from './components/Customer/Review/Review';
 import Dashboard from './components/Dashboard/Dashboard/Dashboard';
 import Home from './components/Home/Home/Home';
+import Login from './components/Login/Login/Login';
+import PrivateRoute from './components/Login/PrivateRoute/PrivateRoute';
+import Register from './components/Login/Register/Register';
+import AuthProvider from './context/AuthProvider';
 
 function App() {
     return (
-        <Router>
-            <Switch>
-                <Route exact path="/">
-                    <Home />
-                </Route>
-                <Route path="/dashboard">
-                    <Dashboard />
-                </Route>
-                <Route path="/contact">
-                    <Contact />
-                </Route>
-                <Route path="/book">
-                    <Book />
-                </Route>
-                <Route path="/review">
-                    <Review />
-                </Route>
-                <Route path="/bookingList">
-                    <BookingList />
-                </Route>
-                <Route path="/orderList">
-                    <OrderList />
-                </Route>
-                <Route path="/addService">
-                    <AddService />
-                </Route>
-                <Route path="/addAdmin">
-                    <AddAdmin />
-                </Route>
-                <Route path="/manageServices">
-                    <ManageServices />
-                </Route>
-                <Route path="/manageReviews">
-                    <ManageReviews />
-                </Route>
-            </Switch>
-        </Router>
+        <AuthProvider>
+            <Toaster />
+            <Router>
+                <Routes>
+                    <Route exact path="/" element={<Home />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route
+                        path="/dashboard"
+                        element={
+                            <PrivateRoute>
+                                <Dashboard />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/book"
+                        element={
+                            <PrivateRoute>
+                                <Book />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/review"
+                        element={
+                            <PrivateRoute>
+                                <Review />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/bookingList"
+                        element={
+                            <PrivateRoute>
+                                <BookingList />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/orderList"
+                        element={
+                            <PrivateRoute>
+                                <OrderList />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/addService"
+                        element={
+                            <PrivateRoute>
+                                <AddService />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/addAdmin"
+                        element={
+                            <PrivateRoute>
+                                <AddAdmin />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/manageServices"
+                        element={
+                            <PrivateRoute>
+                                <ManageServices />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/manageReviews"
+                        element={
+                            <PrivateRoute>
+                                <ManageReviews />
+                            </PrivateRoute>
+                        }
+                    />
+                </Routes>
+            </Router>
+        </AuthProvider>
     );
 }
 

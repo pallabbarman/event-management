@@ -1,0 +1,28 @@
+.profile-info {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    text-align: center;
+    padding: 50px 0;
+    border-radius: 10px;
+}
+.profile-img {
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.logout-btn {
+    padding: 5px 25px;
+    border: 1px solid rgb(228, 217, 217);
+    border-radius: 5px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.logout-btn:hover {
+    background-color: red;
+    color: white;
+}
+@media screen and (min-width: 1024px) {
+    .profile-info {
+        margin: 0 200px;
+    }
+}

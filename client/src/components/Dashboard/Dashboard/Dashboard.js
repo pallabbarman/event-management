@@ -7,7 +7,7 @@ import './Dashboard.css';
 
 const Dashboard = () => {
     const { loggedInUser } = useAuth();
-    console.log(loggedInUser);
+
     return (
         <section>
             <div>

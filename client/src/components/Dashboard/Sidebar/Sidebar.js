@@ -9,6 +9,7 @@ import {
     faPlus,
     faShoppingCart,
     faTasks,
+    faUserCircle,
     faUserShield,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -24,6 +25,9 @@ const Sidebar = () => (
             </Link>
             <Link to="/dashboard">
                 <FontAwesomeIcon icon={faChartLine} /> Dashboard
+            </Link>
+            <Link to="/profile">
+                <FontAwesomeIcon icon={faUserCircle} /> Profile
             </Link>
             <Link to="/book">
                 <FontAwesomeIcon icon={faShoppingCart} /> Book

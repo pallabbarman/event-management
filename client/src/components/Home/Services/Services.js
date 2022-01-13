@@ -1,45 +1,19 @@
-import React from 'react';
+/* eslint-disable no-underscore-dangle */
+import React, { useEffect, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
-import birth from '../../../images/undraw_Birthday_cake_2wxy.svg';
-import party from '../../../images/undraw_Having_fun_re_vj4h.svg';
-import wed from '../../../images/undraw_wedding_t1yl.svg';
 import Service from '../Service/Service';
 
 const Services = () => {
-    const servicesData = [
-        {
-            id: 1,
-            name: 'Weeding',
-            price: 150,
-            img: wed,
-            description:
-                'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus quas eius accusamus eum odit animi quasi',
-        },
-        {
-            id: 2,
-            name: 'Birthday',
-            price: 150,
-            img: birth,
-            description:
-                'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus quas eius accusamus eum odit animi quasi',
-        },
-        {
-            id: 3,
-            name: 'Party',
-            price: 150,
-            img: party,
-            description:
-                'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus quas eius accusamus eum odit animi quasi',
-        },
-        {
-            id: 4,
-            name: 'Party',
-            price: 150,
-            img: party,
-            description:
-                'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus quas eius accusamus eum odit animi quasi',
-        },
-    ];
+    const [services, setServices] = useState([]);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/services`)
+            .then((response) => response.json())
+            .then((data) => {
+                setServices(data);
+            });
+    }, []);
+
     return (
         <section>
             <Container>
@@ -47,8 +21,8 @@ const Services = () => {
                     Our Services
                 </h1>
                 <Row>
-                    {servicesData.map((service) => (
-                        <Service service={service} key={service.id} />
+                    {services.map((serviceData) => (
+                        <Service serviceData={serviceData} key={serviceData._id} />
                     ))}
                 </Row>
             </Container>

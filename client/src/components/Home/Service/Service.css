@@ -15,7 +15,7 @@
     color: red;
 }
 .service-card img {
-    object-fit: contain;
+    object-fit: cover;
     height: 220px;
     cursor: pointer;
     transform: scale(1);

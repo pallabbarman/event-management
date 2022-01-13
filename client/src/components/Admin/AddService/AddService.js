@@ -1,16 +1,67 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import Sidebar from '../../Dashboard/Sidebar/Sidebar';
 
+require('dotenv').config();
+
 const AddService = () => {
+    const [imageURL, setImageURL] = useState('');
+
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm();
 
-    const onSubmit = (data) => console.log(data);
+    const handleImageUpload = (event) => {
+        const imageData = new FormData();
+
+        imageData.set('key', `${process.env.REACT_APP_IMAGEBB_KEY}`);
+        imageData.append('image', event.target.files[0]);
+
+        const loading = toast.loading('Uploading... Please wait!');
+
+        axios
+            .post('https://api.imgbb.com/1/upload', imageData)
+            .then((response) => {
+                if (response.status === 200) {
+                    toast.success('Successfully Uploaded The Image!!!');
+                    setImageURL(response.data.data.display_url);
+                }
+            })
+            .catch(() => {
+                toast.error('Something went wrong! Please try again!');
+            })
+            .finally(() => toast.dismiss(loading));
+    };
+
+    const onSubmit = (data, e) => {
+        const serviceData = {
+            title: data.title,
+            imageURL,
+            service: data.des,
+            amount: data.amount,
+        };
+
+        fetch('http://localhost:5000/addService', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify(serviceData),
+        })
+            .then((res) => {
+                res.json();
+                toast.success('New Services added successfully');
+                e.target.reset();
+            })
+            .catch(() => {
+                toast.error('Something went wrong! Please try again!');
+            });
+    };
 
     return (
         <section>
@@ -25,9 +76,9 @@ const AddService = () => {
                             <Form.Control
                                 type="text"
                                 placeholder="Service Title"
-                                {...register('Title', { required: true })}
+                                {...register('title', { required: true })}
                             />
-                            {errors.Title && <span>This field is required</span>}
+                            {errors.title && <span>This field is required</span>}
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
                             <Form.Control
@@ -47,7 +98,11 @@ const AddService = () => {
                             {errors.des && <span>This field is required</span>}
                         </Form.Group>
                         <Form.Group controlId="formFile" className="mb-3">
-                            <Form.Control type="file" {...register('file', { required: true })} />
+                            <Form.Control
+                                type="file"
+                                {...register('file', { required: true })}
+                                onChange={handleImageUpload}
+                            />
                             <br />
                             {errors.file && <span>This field is required</span>}
                         </Form.Group>

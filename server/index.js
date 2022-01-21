@@ -19,18 +19,36 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 client.connect(() => {
     const database = client.db(`${process.env.DB_NAME}`);
     const serviceCollection = database.collection('services');
+    const reviewCollection = database.collection('reviews');
 
+    // add services
+    app.post('/addService', (req, res) => {
+        const newProduct = req.body;
+        console.log(newProduct);
+        serviceCollection.insertOne(newProduct).then((result) => {
+            res.send(result.insertedCount > 0);
+        });
+    });
+
+    // all services
     app.get('/services', (req, res) => {
         serviceCollection.find().toArray((err, items) => {
             res.send(items);
         });
     });
 
-    app.post('/addService', (req, res) => {
-        const newProduct = req.body;
-        console.log(newProduct);
-        serviceCollection.insertOne(newProduct).then((result) => {
+    // add reviews
+    app.post('/addReview', (req, res) => {
+        const review = req.body;
+        reviewCollection.insertOne(review).then((result) => {
             res.send(result.insertedCount > 0);
+        });
+    });
+
+    // all reviews
+    app.get('/reviews', (req, res) => {
+        reviewCollection.find().toArray((err, documents) => {
+            res.send(documents);
         });
     });
 });

@@ -1,17 +1,45 @@
 import React from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
+import useAuth from '../../../hooks/useAuth';
 import Sidebar from '../../Dashboard/Sidebar/Sidebar';
 import './Review.css';
 
 const Review = () => {
+    const { loggedInUser } = useAuth();
+
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm();
 
-    const onSubmit = (data) => console.log(data);
+    const onSubmit = (data, e) => {
+        const reviewData = {
+            img: loggedInUser.photoURL,
+            name: data.name,
+            service: data.service,
+            description: data.des,
+        };
+
+        const loading = toast.loading('Loading...Please Wait!!!');
+
+        fetch('http://localhost:5000/addReview', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify(reviewData),
+        })
+            .then((res) => {
+                res.json();
+                toast.success('Thanks for your feedback!');
+                e.target.reset();
+            })
+            .catch((err) => toast.error(err.message))
+            .finally(() => toast.dismiss(loading));
+    };
 
     return (
         <section>
@@ -26,6 +54,7 @@ const Review = () => {
                             <Form.Control
                                 type="text"
                                 placeholder="Name"
+                                defaultValue={loggedInUser.displayName}
                                 {...register('name', { required: true })}
                             />
                             {errors.name && <span>This field is required</span>}

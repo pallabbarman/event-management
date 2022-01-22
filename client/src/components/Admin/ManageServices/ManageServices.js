@@ -1,10 +1,11 @@
-import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Button, Container, Table } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import Sidebar from '../../Dashboard/Sidebar/Sidebar';
+import Spinner from '../../Spinner/Spinner';
 
 const ManageServices = () => {
     const [services, setServices] = useState([]);
@@ -41,31 +42,29 @@ const ManageServices = () => {
                                 <th>No</th>
                                 <th>Name</th>
                                 <th>Amount</th>
-                                <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {services.map((service, index) => (
-                                <tr key={service._id}>
-                                    <td>{index + 1}</td>
-                                    <td>{service.title}</td>
-                                    <td>{service.amount}</td>
-                                    <td>
-                                        <Button variant="outline-primary">
-                                            <FontAwesomeIcon icon={faEdit} />
-                                        </Button>
-                                    </td>
-                                    <td>
-                                        <Button
-                                            variant="outline-danger"
-                                            onClick={() => deleteService(service._id)}
-                                        >
-                                            <FontAwesomeIcon icon={faTrash} />
-                                        </Button>
-                                    </td>
-                                </tr>
-                            ))}
+                            {!services.length ? (
+                                <Spinner />
+                            ) : (
+                                services.map((service, index) => (
+                                    <tr key={service._id}>
+                                        <td>{index + 1}</td>
+                                        <td>{service.title}</td>
+                                        <td>{service.amount}</td>
+                                        <td>
+                                            <Button
+                                                variant="outline-danger"
+                                                onClick={() => deleteService(service._id)}
+                                            >
+                                                <FontAwesomeIcon icon={faTrash} />
+                                            </Button>
+                                        </td>
+                                    </tr>
+                                ))
+                            )}
                         </tbody>
                     </Table>
                 </Container>

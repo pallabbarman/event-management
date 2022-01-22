@@ -1,12 +1,18 @@
-/* eslint-disable no-underscore-dangle */
+import { css } from '@emotion/react';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import toast from 'react-hot-toast';
+import HashLoader from 'react-spinners/HashLoader';
 import Service from '../Service/Service';
 
 const Services = () => {
     const [services, setServices] = useState([]);
+
+    const override = css`
+        display: block;
+        margin: 10px auto;
+    `;
 
     useEffect(() => {
         axios
@@ -22,9 +28,13 @@ const Services = () => {
                     Our Services
                 </h1>
                 <Row>
-                    {services.map((serviceData) => (
-                        <Service serviceData={serviceData} key={serviceData._id} />
-                    ))}
+                    {!services.length ? (
+                        <HashLoader css={override} color="#0ee7c9" size={120} />
+                    ) : (
+                        services.map((serviceData) => (
+                            <Service serviceData={serviceData} key={serviceData._id} />
+                        ))
+                    )}
                 </Row>
             </Container>
         </section>

@@ -76,6 +76,22 @@ client.connect(() => {
         });
     });
 
+    // status update
+    app.patch('/update/:_id', (req, res) => {
+        ordersCollection
+            .updateOne(
+                { _id: ObjectId(req.params._id) },
+                {
+                    $set: {
+                        status: req.body.status,
+                    },
+                },
+            )
+            .then((result) => {
+                res.send(result.modifiedCount > 0);
+            });
+    });
+
     // add reviews
     app.post('/addReview', (req, res) => {
         const review = req.body;
@@ -89,6 +105,16 @@ client.connect(() => {
         reviewCollection.find().toArray((err, documents) => {
             res.send(documents);
         });
+    });
+
+    // delete review
+    app.delete('/deleteReview/:_id', (req, res) => {
+        reviewCollection
+            .deleteOne({ _id: ObjectId(req.params._id) })
+            .then((result) => {
+                res.send(result.deletedCount > 0);
+            })
+            .catch((err) => console.log(err));
     });
 });
 

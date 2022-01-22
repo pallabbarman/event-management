@@ -4,6 +4,7 @@ import { Container, Table } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import useAuth from '../../../hooks/useAuth';
 import Sidebar from '../../Dashboard/Sidebar/Sidebar';
+import Spinner from '../../Spinner/Spinner';
 
 const BookingList = () => {
     const [services, setServices] = useState([]);
@@ -37,16 +38,20 @@ const BookingList = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {services.map((service, index) => (
-                                <tr key={service._id}>
-                                    <td>{index + 1}</td>
-                                    <td>{service.name}</td>
-                                    <td>{service.service}</td>
-                                    <td>$ {service.amount}</td>
-                                    <td>{new Date(service.date).toDateString('dd/MM/yyyy')}</td>
-                                    <td>{service.status}</td>
-                                </tr>
-                            ))}
+                            {!services.length ? (
+                                <Spinner />
+                            ) : (
+                                services.map((service, index) => (
+                                    <tr key={service._id}>
+                                        <td>{index + 1}</td>
+                                        <td>{service.name}</td>
+                                        <td>{service.service}</td>
+                                        <td>$ {service.amount}</td>
+                                        <td>{new Date(service.date).toDateString('dd/MM/yyyy')}</td>
+                                        <td>{service.status}</td>
+                                    </tr>
+                                ))
+                            )}
                         </tbody>
                     </Table>
                 </Container>

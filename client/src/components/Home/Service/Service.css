@@ -6,10 +6,13 @@
     border-radius: 15px;
     overflow: hidden;
     text-align: justify;
+    text-decoration: none;
+    color: black;
 }
 .service-card:hover {
     background-color: whitesmoke;
     box-shadow: 2px 2px 5px gray;
+    color: black;
 }
 .service-card h6 {
     color: red;

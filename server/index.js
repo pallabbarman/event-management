@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb');
 require('dotenv').config();
 
 const app = express();
@@ -19,12 +19,12 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 client.connect(() => {
     const database = client.db(`${process.env.DB_NAME}`);
     const serviceCollection = database.collection('services');
+    const ordersCollection = database.collection('service-orders');
     const reviewCollection = database.collection('reviews');
 
     // add services
     app.post('/addService', (req, res) => {
         const newProduct = req.body;
-        console.log(newProduct);
         serviceCollection.insertOne(newProduct).then((result) => {
             res.send(result.insertedCount > 0);
         });
@@ -33,6 +33,45 @@ client.connect(() => {
     // all services
     app.get('/services', (req, res) => {
         serviceCollection.find().toArray((err, items) => {
+            res.send(items);
+        });
+    });
+
+    // get service by id
+    app.get('/service/:_id', (req, res) => {
+        serviceCollection.find({ _id: ObjectId(req.params._id) }).toArray((err, documents) => {
+            res.send(documents);
+        });
+    });
+
+    // delete a service
+    app.delete('/delete/:_id', (req, res) => {
+        serviceCollection
+            .deleteOne({ _id: ObjectId(req.params._id) })
+            .then((result) => {
+                res.send(result.deletedCount > 0);
+            })
+            .catch((err) => console.log(err));
+    });
+
+    // add service orders
+    app.post('/addServicesOrder', (req, res) => {
+        const order = req.body;
+        ordersCollection.insertOne(order).then((result) => {
+            res.send(result.insertedCount > 0);
+        });
+    });
+
+    // all services orders
+    app.get('/servicesOrder', (req, res) => {
+        ordersCollection.find().toArray((err, items) => {
+            res.send(items);
+        });
+    });
+
+    // service orders get by email
+    app.get('/servicesOrderByEmail', (req, res) => {
+        ordersCollection.find({ email: req.query.email }).toArray((err, items) => {
             res.send(items);
         });
     });

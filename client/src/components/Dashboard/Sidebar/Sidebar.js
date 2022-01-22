@@ -29,7 +29,7 @@ const Sidebar = () => (
             <Link to="/profile">
                 <FontAwesomeIcon icon={faUserCircle} /> Profile
             </Link>
-            <Link to="/book">
+            <Link to="/booking">
                 <FontAwesomeIcon icon={faShoppingCart} /> Book
             </Link>
             <Link to="/bookingList">

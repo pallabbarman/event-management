@@ -46,17 +46,13 @@ const AddService = () => {
             amount: data.amount,
         };
 
-        fetch('http://localhost:5000/addService', {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json',
-            },
-            body: JSON.stringify(serviceData),
-        })
+        axios
+            .post('http://localhost:5000/addService', serviceData)
             .then((res) => {
-                res.json();
-                toast.success('New Services added successfully');
-                e.target.reset();
+                if (res.status === 200) {
+                    toast.success('New Services added successfully');
+                    e.target.reset();
+                }
             })
             .catch(() => {
                 toast.error('Something went wrong! Please try again!');

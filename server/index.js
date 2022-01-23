@@ -21,6 +21,9 @@ client.connect(() => {
     const serviceCollection = database.collection('services');
     const ordersCollection = database.collection('service-orders');
     const reviewCollection = database.collection('reviews');
+    const adminCollection = database.collection('admins');
+    const usersCollection = database.collection('users');
+    const contactUs = database.collection('contact');
 
     // add services
     app.post('/addService', (req, res) => {
@@ -85,7 +88,7 @@ client.connect(() => {
                     $set: {
                         status: req.body.status,
                     },
-                },
+                }
             )
             .then((result) => {
                 res.send(result.modifiedCount > 0);
@@ -115,6 +118,62 @@ client.connect(() => {
                 res.send(result.deletedCount > 0);
             })
             .catch((err) => console.log(err));
+    });
+
+    // add admin
+    app.post('/addAAdmin', (req, res) => {
+        const admin = req.body;
+        adminCollection.insertOne(admin).then((result) => {
+            res.send(result.insertedCount > 0);
+        });
+    });
+
+    // all admins
+    app.get('/admins', (req, res) => {
+        adminCollection.find().toArray((err, documents) => {
+            res.send(documents);
+        });
+    });
+
+    // check admin or not
+    app.post('/isAdmin', (req, res) => {
+        const { email } = req.body;
+        adminCollection.find({ email }).toArray((err, documents) => {
+            res.send(documents.length > 0);
+        });
+    });
+
+    // add users from email
+    app.post('/users', (req, res) => {
+        const users = req.body;
+        usersCollection.insertOne(users).then((result) => {
+            res.send(result.insertedCount > 0);
+        });
+    });
+
+    // add users from gmail
+    app.put('/users', (req, res) => {
+        const users = req.body;
+        const filter = { users: users.email };
+        const option = { upsert: true };
+        const updateUser = { $set: users };
+        usersCollection.updateOne(filter, updateUser, option).then((result) => {
+            res.send(result.insertedCount > 0);
+        });
+    });
+
+    // all users
+    app.get('/allUsers', (req, res) => {
+        usersCollection.find().toArray((err, documents) => {
+            res.send(documents);
+        });
+    });
+
+    app.post('/addContact', (req, res) => {
+        const contact = req.body;
+        contactUs.insertOne(contact).then((result) => {
+            res.send(result.insertedCount > 0);
+        });
     });
 });
 

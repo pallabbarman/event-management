@@ -1,6 +1,8 @@
+import axios from 'axios';
 import React from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import contact from '../../images/contact.svg';
 import Footer from '../Shared/Footer/Footer';
 import NavBar from '../Shared/NavBar/NavBar';
@@ -13,7 +15,23 @@ const Contact = () => {
         formState: { errors },
     } = useForm();
 
-    const onSubmit = (data) => console.log(data);
+    const onSubmit = (data) => {
+        const contactInfo = {
+            name: data.name,
+            email: data.email,
+            subject: data.subject,
+            details: data.des,
+        };
+
+        axios
+            .post(`http://localhost:5000/addContact`, contactInfo)
+            .then((response) => {
+                if (response.status === 200) {
+                    toast.success('Thank you for contacting with us!');
+                }
+            })
+            .catch((err) => toast.error(err.message));
+    };
 
     return (
         <section>
@@ -71,7 +89,6 @@ const Contact = () => {
                     </Row>
                 </Container>
             </div>
-
             <Footer />
         </section>
     );

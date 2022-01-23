@@ -6,6 +6,7 @@ import 'slick-carousel/slick/slick.css';
 import './App.css';
 import AddAdmin from './components/Admin/AddAdmin/AddAdmin';
 import AddService from './components/Admin/AddService/AddService';
+import AllUsers from './components/Admin/AllUsers/AllUsers';
 import ManageReviews from './components/Admin/ManageReviews/ManageReviews';
 import ManageServices from './components/Admin/ManageServices/ManageServices';
 import OrderList from './components/Admin/OrderList/OrderList';
@@ -19,6 +20,7 @@ import Home from './components/Home/Home/Home';
 import Login from './components/Login/Login/Login';
 import PrivateRoute from './components/Login/PrivateRoute/PrivateRoute';
 import Register from './components/Login/Register/Register';
+import ResetPassword from './components/Login/ResetPassword/ResetPassword';
 import Profile from './components/Profile/Profile';
 import AuthProvider from './context/AuthProvider';
 
@@ -32,6 +34,7 @@ function App() {
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
+                    <Route path="/reset" element={<ResetPassword />} />
                     <Route
                         path="/dashboard"
                         element={
@@ -101,6 +104,14 @@ function App() {
                         element={
                             <PrivateRoute>
                                 <AddAdmin />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/allUsers"
+                        element={
+                            <PrivateRoute>
+                                <AllUsers />
                             </PrivateRoute>
                         }
                     />

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {
     createUserWithEmailAndPassword,
     getAuth,
@@ -23,13 +24,39 @@ const useFirebase = () => {
     const googleProvider = new GoogleAuthProvider();
     const auth = getAuth();
 
+    // save email users in database
+    const saveUserForEmail = (email, displayName) => {
+        const user = { email, displayName };
+        axios
+            .post(`http://localhost:5000/users`, user)
+            .then((res) => {
+                if (res.status === 200) {
+                    toast.success('User Added in database successfully!');
+                }
+            })
+            .catch((err) => toast.error(err.message));
+    };
+
+    // save gmail users in database
+    const saveUserForOthers = (email, displayName) => {
+        const user = { email, displayName };
+        axios
+            .put('http://localhost:5000/users', user)
+            .then((res) => {
+                if (res.status === 200) {
+                    toast.success('User Added in database successfully!');
+                }
+            })
+            .catch((err) => toast.error(err.message));
+    };
+
     // google sign in
     const googleSignIn = (navigate, location) => {
         signInWithPopup(auth, googleProvider)
             .then((userCredential) => {
                 toast.success('Logged in successfully...');
                 setLoggedInUser(userCredential.user);
-                // saveUserForOthers(userCredential.user.email, userCredential.user.displayName);
+                saveUserForOthers(userCredential.user.email, userCredential.user.displayName);
                 const destination = location.state?.from || '/';
                 navigate(destination);
             })
@@ -59,7 +86,7 @@ const useFirebase = () => {
                     photoURL: 'https://i.ibb.co/7CzR0Dg/users.jpg',
                     displayName: name,
                 });
-                // saveUserForEmail(email, name);
+                saveUserForEmail(email, name);
                 toast.dismiss(loading);
                 toast.success('Creating a new user successfully...');
                 setLoggedInUser(userCredential.user);
@@ -107,11 +134,10 @@ const useFirebase = () => {
     }, [auth]);
 
     // reset password
-    const resetPassword = (email, e) => {
+    const resetPassword = (email) => {
         sendPasswordResetEmail(auth, email)
             .then(() => {
                 toast.success('Check your gmail inbox. We send an verification email');
-                e.target.reset();
             })
             .catch((err) => toast.error(err.message))
             .finally(() => setIsLoading(false));

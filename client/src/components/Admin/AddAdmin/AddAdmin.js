@@ -1,6 +1,8 @@
+import axios from 'axios';
 import React from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import Sidebar from '../../Dashboard/Sidebar/Sidebar';
 
 const AddAdmin = () => {
@@ -10,7 +12,21 @@ const AddAdmin = () => {
         formState: { errors },
     } = useForm();
 
-    const onSubmit = (data) => console.log(data);
+    const onSubmit = (data, e) => {
+        const adminData = {
+            email: data.email,
+        };
+
+        axios
+            .post(`http://localhost:5000/addAAdmin`, adminData)
+            .then((response) => {
+                if (response.status === 200) {
+                    toast.success('Admin added successfully!');
+                    e.target.reset();
+                }
+            })
+            .catch((error) => toast.error(error.message));
+    };
 
     return (
         <section>

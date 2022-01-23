@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
@@ -25,13 +26,8 @@ const Review = () => {
 
         const loading = toast.loading('Loading...Please Wait!!!');
 
-        fetch('http://localhost:5000/addReview', {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json',
-            },
-            body: JSON.stringify(reviewData),
-        })
+        axios
+            .post('http://localhost:5000/addReview', reviewData)
             .then((res) => {
                 res.json();
                 toast.success('Thanks for your feedback!');

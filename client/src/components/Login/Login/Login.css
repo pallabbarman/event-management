@@ -26,3 +26,6 @@
 .google-btn:hover {
     background-color: rgb(237, 241, 232);
 }
+.message-class a {
+    align-items: flex-end;
+}

@@ -18,7 +18,7 @@ const AddAdmin = () => {
         };
 
         axios
-            .post(`http://localhost:5000/addAAdmin`, adminData)
+            .post(`https://web-eventia.herokuapp.com/addAAdmin`, adminData)
             .then((response) => {
                 if (response.status === 200) {
                     toast.success('Admin added successfully!');

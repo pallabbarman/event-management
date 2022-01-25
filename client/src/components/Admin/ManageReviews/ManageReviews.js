@@ -12,14 +12,14 @@ const ManageReviews = () => {
 
     useEffect(() => {
         axios
-            .get('http://localhost:5000/reviews')
+            .get('https://web-eventia.herokuapp.com/reviews')
             .then((res) => setReviews(res.data))
             .catch((err) => toast.error(err.message));
     }, [reviews]);
 
     const deleteReview = (_id) => {
         axios
-            .delete(`http://localhost:5000/deleteReview/${_id}`)
+            .delete(`https://web-eventia.herokuapp.com/deleteReview/${_id}`)
             .then((res) => {
                 if (res.status === 200) {
                     toast.success('Successfully delete the review');

@@ -1,0 +1,14 @@
+.not-found {
+    margin-top: 50px;
+}
+.not-found-img {
+    height: 450px;
+    width: 500px;
+}
+.btn-home {
+    background-color: white;
+    color: black;
+    padding: 5px 15px;
+    border: 1px solid whitesmoke;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}

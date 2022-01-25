@@ -13,7 +13,9 @@ const BookingList = () => {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:5000/servicesOrderByEmail?email=${loggedInUser.email}`)
+            .get(
+                `https://web-eventia.herokuapp.com/servicesOrderByEmail?email=${loggedInUser.email}`
+            )
             .then((res) => setServices(res.data))
             .catch((err) => toast.error(err.message));
     }, [loggedInUser.email]);

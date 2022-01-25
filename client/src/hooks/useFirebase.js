@@ -28,7 +28,7 @@ const useFirebase = () => {
     const saveUserForEmail = (email, displayName) => {
         const user = { email, displayName };
         axios
-            .post(`http://localhost:5000/users`, user)
+            .post(`https://web-eventia.herokuapp.com/users`, user)
             .then((res) => {
                 if (res.status === 200) {
                     toast.success('User Added in database successfully!');
@@ -41,7 +41,7 @@ const useFirebase = () => {
     const saveUserForOthers = (email, displayName) => {
         const user = { email, displayName };
         axios
-            .put('http://localhost:5000/users', user)
+            .put('https://web-eventia.herokuapp.com/users', user)
             .then((res) => {
                 if (res.status === 200) {
                     toast.success('User Added in database successfully!');
@@ -126,7 +126,7 @@ const useFirebase = () => {
                     setToken(idToken);
                 });
             } else {
-                setLoggedInUser({});
+                setLoggedInUser(null);
             }
             setIsLoading(false);
         });

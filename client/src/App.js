@@ -21,6 +21,7 @@ import Login from './components/Login/Login/Login';
 import PrivateRoute from './components/Login/PrivateRoute/PrivateRoute';
 import Register from './components/Login/Register/Register';
 import ResetPassword from './components/Login/ResetPassword/ResetPassword';
+import NotFound from './components/NotFound/NotFound';
 import Profile from './components/Profile/Profile';
 import AuthProvider from './context/AuthProvider';
 
@@ -131,6 +132,7 @@ function App() {
                             </PrivateRoute>
                         }
                     />
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
             </Router>
         </AuthProvider>

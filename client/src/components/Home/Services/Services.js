@@ -16,7 +16,7 @@ const Services = () => {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:5000/services`)
+            .get(`https://web-eventia.herokuapp.com/services`)
             .then((res) => setServices(res.data))
             .catch((err) => toast.error(err.message));
     }, []);

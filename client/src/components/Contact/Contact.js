@@ -15,7 +15,7 @@ const Contact = () => {
         formState: { errors },
     } = useForm();
 
-    const onSubmit = (data) => {
+    const onSubmit = (data, e) => {
         const contactInfo = {
             name: data.name,
             email: data.email,
@@ -24,10 +24,11 @@ const Contact = () => {
         };
 
         axios
-            .post(`http://localhost:5000/addContact`, contactInfo)
+            .post(`https://web-eventia.herokuapp.com/addContact`, contactInfo)
             .then((response) => {
                 if (response.status === 200) {
                     toast.success('Thank you for contacting with us!');
+                    e.target.reset();
                 }
             })
             .catch((err) => toast.error(err.message));

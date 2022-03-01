@@ -29,3 +29,12 @@
 .message-class a {
     align-items: flex-end;
 }
+.admin-toast {
+    position: absolute;
+    top: 25%;
+    transform: translateY(-50%);
+    right: 10px;
+}
+.admin-toast h3 {
+    font-size: 15px;
+}

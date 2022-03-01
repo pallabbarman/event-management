@@ -10,7 +10,7 @@ Eventia is a simple event management website that lets users book events based o
 
 > -   Profiles and dashboards are available to both admins and users.
 
-## Admin Panel
+#### Admin Panel
 
 > -   Admin can add and delete a service.
 > -   Admin can make another person admin.
@@ -18,7 +18,7 @@ Eventia is a simple event management website that lets users book events based o
 > -   Admins can view all user lists.
 > -   Administrators can manage all services and reviews.
 
-## User Panel
+#### User Panel
 
 > -   Users can book events.
 > -   Users can see a list of all their bookings.
@@ -39,7 +39,7 @@ Please follow the below instructions to run this project in your computer:
 1. Clone this repository
 
 ```
-    https://github.com/pallabbarman/event-management
+https://github.com/pallabbarman/event-management
 ```
 
 2. Then go to the client and server directory
@@ -50,6 +50,6 @@ npm install or yarn
 
 **Feel free to contact me if you wish to discuss this further.**
 
-_**If you like this project, please give a star.**_
+_**Give this project a star if you like it.**_
 
 [Live Link](https://eventia-web.web.app/).

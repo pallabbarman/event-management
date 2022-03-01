@@ -7,7 +7,6 @@ import {
     faHome,
     faList,
     faPlus,
-    faShoppingCart,
     faTasks,
     faUserCircle,
     faUsers,
@@ -73,9 +72,6 @@ const Sidebar = () => {
                     </>
                 ) : (
                     <>
-                        <Link to="/booking">
-                            <FontAwesomeIcon icon={faShoppingCart} /> Book
-                        </Link>
                         <Link to="/bookingList">
                             <FontAwesomeIcon icon={faTasks} /> Booking List
                         </Link>

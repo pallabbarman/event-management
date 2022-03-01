@@ -7,7 +7,7 @@ const TopBanner = () => (
     <main className="top-banner">
         <Container>
             <Row className="d-flex align-items-center banner">
-                <Col md={7}>
+                <Col lg={7}>
                     <div className="banner-content">
                         <h1>Welcome To Eventia</h1>
                         <p>

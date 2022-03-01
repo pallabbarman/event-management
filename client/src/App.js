@@ -12,7 +12,6 @@ import ManageServices from './components/Admin/ManageServices/ManageServices';
 import OrderList from './components/Admin/OrderList/OrderList';
 import Contact from './components/Contact/Contact';
 import Book from './components/Customer/Book/Book';
-import Booking from './components/Customer/Booking/Booking';
 import BookingList from './components/Customer/BookingList/BookingList';
 import Review from './components/Customer/Review/Review';
 import Dashboard from './components/Dashboard/Dashboard/Dashboard';
@@ -57,14 +56,6 @@ function App() {
                         element={
                             <PrivateRoute>
                                 <Book />
-                            </PrivateRoute>
-                        }
-                    />
-                    <Route
-                        path="/booking"
-                        element={
-                            <PrivateRoute>
-                                <Booking />
                             </PrivateRoute>
                         }
                     />

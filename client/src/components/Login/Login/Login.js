@@ -1,11 +1,12 @@
-import React from 'react';
-import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Button, Col, Container, Form, Row, Toast } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import google from '../../../images/google.svg';
 import loginImg from '../../../images/login.svg';
+import warning from '../../../images/warning.svg';
 import Footer from '../../Shared/Footer/Footer';
 import NavBar from '../../Shared/NavBar/NavBar';
 import './Login.css';
@@ -13,6 +14,7 @@ import './Login.css';
 const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
+    const [show, setShow] = useState(true);
 
     const { googleSignIn, emailSignIn } = useAuth();
 
@@ -53,7 +55,9 @@ const Login = () => {
                                     <Form.Control
                                         type="email"
                                         placeholder="Email"
-                                        {...register('email', { required: true })}
+                                        {...register('email', {
+                                            required: true,
+                                        })}
                                     />
                                     {errors.email && <span>Email is required</span>}
                                 </Form.Group>
@@ -61,7 +65,9 @@ const Login = () => {
                                     <Form.Control
                                         type="password"
                                         placeholder="Password"
-                                        {...register('password', { required: true })}
+                                        {...register('password', {
+                                            required: true,
+                                        })}
                                     />
                                     {errors.password && <span>Password is required</span>}
                                 </Form.Group>
@@ -100,6 +106,26 @@ const Login = () => {
                     </Row>
                 </Container>
             </div>
+            <Toast
+                show={show}
+                onClose={() => setShow(false)}
+                className="admin-toast"
+                delay={15000}
+                autohide
+                animation={false}
+            >
+                <Toast.Header>
+                    <img src={warning} className="me-2" alt="warning" />
+                    <strong className="me-auto">Warning</strong>
+                </Toast.Header>
+                <Toast.Body>
+                    <h3>Enter the following user name and password to access the admin panel.</h3>
+                    <ul>
+                        <li>username: admin@test.com</li>
+                        <li>password: ADMINtest123!</li>
+                    </ul>
+                </Toast.Body>
+            </Toast>
             <Footer />
         </section>
     );

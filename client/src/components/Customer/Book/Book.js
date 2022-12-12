@@ -21,7 +21,7 @@ const Book = () => {
 
     useEffect(() => {
         axios
-            .get(`https://web-eventia.herokuapp.com/service/${_id}`)
+            .get(`https://eventia.onrender.com/service/${_id}`)
             .then((res) => setBooking(res.data))
             .catch((err) => toast.error(err.message));
     }, [_id]);
@@ -44,7 +44,7 @@ const Book = () => {
         const loading = toast.loading('Loading...Please Wait!!!');
 
         axios
-            .post(`https://web-eventia.herokuapp.com/addServicesOrder`, servicesDetails)
+            .post(`https://eventia.onrender.com/addServicesOrder`, servicesDetails)
             .then((response) => {
                 if (response.status === 200) {
                     toast.success('Your order placed successfully');

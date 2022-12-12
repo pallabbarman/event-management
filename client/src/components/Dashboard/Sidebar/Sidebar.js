@@ -27,7 +27,7 @@ const Sidebar = () => {
 
     useEffect(() => {
         axios
-            .post('https://web-eventia.herokuapp.com/isAdmin', { email: loggedInUser.email })
+            .post('https://eventia.onrender.com/isAdmin', { email: loggedInUser.email })
             .then((res) => {
                 setIsAdmin(res.data);
             })

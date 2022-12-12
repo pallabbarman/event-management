@@ -24,7 +24,7 @@ const Contact = () => {
         };
 
         axios
-            .post(`https://web-eventia.herokuapp.com/addContact`, contactInfo)
+            .post(`https://eventia.onrender.com/addContact`, contactInfo)
             .then((response) => {
                 if (response.status === 200) {
                     toast.success('Thank you for contacting with us!');

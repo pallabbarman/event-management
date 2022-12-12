@@ -27,7 +27,7 @@ const Review = () => {
         const loading = toast.loading('Loading...Please Wait!!!');
 
         axios
-            .post('https://web-eventia.herokuapp.com/addReview', reviewData)
+            .post('https://eventia.onrender.com/addReview', reviewData)
             .then((res) => {
                 res.json();
                 toast.success('Thanks for your feedback!');

@@ -10,7 +10,7 @@ const AllUsers = () => {
 
     useEffect(() => {
         axios
-            .get('https://web-eventia.herokuapp.com/allUsers')
+            .get('https://eventia.onrender.com/allUsers')
             .then((res) => setUser(res.data))
             .catch((err) => toast.error(err.message));
     }, []);

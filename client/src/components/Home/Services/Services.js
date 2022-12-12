@@ -16,7 +16,7 @@ const Services = () => {
 
     useEffect(() => {
         axios
-            .get(`https://web-eventia.herokuapp.com/services`)
+            .get(`https://eventia.onrender.com/services`)
             .then((res) => setServices(res.data))
             .catch((err) => toast.error(err.message));
     }, []);

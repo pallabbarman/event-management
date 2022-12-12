@@ -62,7 +62,7 @@ const Reviews = () => {
 
     useEffect(() => {
         axios
-            .get(`https://web-eventia.herokuapp.com/reviews`)
+            .get(`https://eventia.onrender.com/reviews`)
             .then((res) => setReviews(res.data))
             .catch((error) => toast.error(error.message));
     }, []);

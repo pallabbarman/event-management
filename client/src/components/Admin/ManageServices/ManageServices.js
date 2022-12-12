@@ -12,14 +12,14 @@ const ManageServices = () => {
 
     useEffect(() => {
         axios
-            .get(`https://web-eventia.herokuapp.com/services`)
+            .get(`https://eventia.onrender.com/services`)
             .then((response) => setServices(response.data))
             .catch((error) => toast.error(error.message));
     }, [services]);
 
     const deleteService = (_id) => {
         axios
-            .delete(`https://web-eventia.herokuapp.com/delete/${_id}`)
+            .delete(`https://eventia.onrender.com/delete/${_id}`)
             .then((response) => {
                 if (response.status === 200) {
                     toast.success('Service delete successfully!');

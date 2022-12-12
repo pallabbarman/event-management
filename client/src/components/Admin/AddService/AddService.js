@@ -47,7 +47,7 @@ const AddService = () => {
         };
 
         axios
-            .post('https://web-eventia.herokuapp.com/addService', serviceData)
+            .post('https://eventia.onrender.com/addService', serviceData)
             .then((res) => {
                 if (res.status === 200) {
                     toast.success('New Services added successfully');

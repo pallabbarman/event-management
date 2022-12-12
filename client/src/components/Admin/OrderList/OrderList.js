@@ -10,7 +10,7 @@ const OrderList = () => {
 
     useEffect(() => {
         axios
-            .get(`https://web-eventia.herokuapp.com/servicesOrder`)
+            .get(`https://eventia.onrender.com/servicesOrder`)
             .then((response) => setOrderList(response.data))
             .catch((error) => toast.error(error.message));
     }, [ordersList]);
@@ -21,7 +21,7 @@ const OrderList = () => {
             _id,
         };
         axios
-            .patch(`https://web-eventia.herokuapp.com/update/${_id}`, updateStatus)
+            .patch(`https://eventia.onrender.com/update/${_id}`, updateStatus)
             .then((res) => {
                 if (res.status === 200) {
                     toast.success('Status updated successfully!');
